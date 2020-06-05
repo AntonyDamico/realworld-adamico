@@ -1,0 +1,19 @@
+{
+  "name": "realworld-adamico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonyDamico/realworld-adamico.git"
+  },
+  "author": "Antony D'Amico",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AntonyDamico/realworld-adamico/issues"
+  },
+  "homepage": "https://github.com/AntonyDamico/realworld-adamico#readme"
+}
