@@ -4,16 +4,38 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "test": "jest"
+    "tsc": "tsc",
+    "build": "npm run tsc",
+    "dev:start": "npm run build && npm run start",
+    "dev": "nodemon --watch src -e ts --exec npm run dev:start",
+    "start": "node .",
+    "test": "jest",
+    "debug": "nodemon --legacy-watch --watch src --inspect=0.0.0.0:9222 --nolazy ./dist/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AntonyDamico/realworld-adamico.git"
   },
-  "author": "Antony D'Amico",
+  "author": "Antony D'Amico <antonydamico29@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/AntonyDamico/realworld-adamico/issues"
   },
-  "homepage": "https://github.com/AntonyDamico/realworld-adamico#readme"
+  "homepage": "https://github.com/AntonyDamico/realworld-adamico#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.6",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.5",
+    "jest": "^26.0.1",
+    "nodemon": "^2.0.3",
+    "ts-jest": "^25.5.1",
+    "typescript": "^3.8.3"
+  }
 }
