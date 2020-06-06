@@ -13,7 +13,7 @@ export const typeOrmConfg: PostgresConnectionOptions = {
     password: process.env.DATABASE_PASSWORD,
     database: process.env.DATABASE_DB,
     synchronize: true,
-    logging: false,
+    logging: true,
     entities: [
         join(__dirname, `../entities/*.{ts,js}`)
     ]

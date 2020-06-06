@@ -21,12 +21,9 @@ services:
       restart: "always"
       ports:
         - "5432:5432"
-      # volumes:
-      #   - database-data:/var/lib/postgresql/data
       environment:
-        POSTGRES_USER: user
+        # Not the real credentials
+        POSTGRES_USER: user 
         POSTGRES_PASSWORD: pass
         POSTGRES_DB: db
 
-# volumes:
-#   database-data: {}

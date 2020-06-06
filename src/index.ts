@@ -9,20 +9,18 @@ import { typeOrmConfg } from './config/typeorm';
 
 dotenv.config()
 const port = parseInt(process.env.SERVER_PORT, 10)
+const app: Application = express()
+app.use(express.json());
 
 
-createConnection(typeOrmConfg).then(connection => {
-
+createConnection(typeOrmConfg).then(() => {
 
     const clientRepo = new ClientRepo()
-
-    const app: Application = express()
-    app.use(express.json());
 
     app.get('/', (req: Request, res: Response) => {
         res.status(200).json({ response: true })
     })
-    
+
     app.get('/customer', (req, res) => {
         clientRepo.getClientsList().then(result => res.send(result))
     })
@@ -31,14 +29,11 @@ createConnection(typeOrmConfg).then(connection => {
         console.log(req.params)
         clientRepo.createClient(req.body).then(result => res.send(result))
     })
-    
+
     app.listen(port, () => {
         console.log(`Starting on port ${port}`)
     })
-    
 
-
-
- })
+})
     .catch(error => console.log(error))
 
