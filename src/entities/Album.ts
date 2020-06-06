@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Album {
@@ -7,19 +7,19 @@ export class Album {
 
     @Column({
         type: 'varchar',
-        nullable: false
+        nullable: false,
     })
     title: string;
 
     @Column({
         type: 'varchar',
-        nullable: false
+        nullable: false,
     })
     artist: string;
 
     @Column({
         type: 'varchar',
-        nullable: false
+        nullable: false,
     })
-    tracklist: String[]
+    tracklist: string[];
 }

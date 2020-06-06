@@ -1,9 +1,8 @@
-import { Client } from '../entities/Client';
-import { PostgresConnectionOptions } from "typeorm/driver/postgres/PostgresConnectionOptions";
-import dotenv from "dotenv";
+import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import dotenv from 'dotenv';
 import { join } from 'path';
 
-dotenv.config()
+dotenv.config();
 
 export const typeOrmConfg: PostgresConnectionOptions = {
     type: 'postgres',
@@ -14,7 +13,5 @@ export const typeOrmConfg: PostgresConnectionOptions = {
     database: process.env.DATABASE_DB,
     synchronize: true,
     logging: true,
-    entities: [
-        join(__dirname, `../entities/*.{ts,js}`)
-    ]
-}
+    entities: [join(__dirname, `../entities/*.{ts,js}`)],
+};
