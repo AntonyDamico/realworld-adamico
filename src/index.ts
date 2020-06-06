@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import bodyParser from "body-parser";
 import { Client } from './entities/Client';
 import { ClientRepo } from './repository/ClientRepo';
 import express, { Request, Application, Response } from "express";
@@ -20,8 +19,6 @@ createConnection(typeOrmConfg).then(connection => {
     const app: Application = express()
     app.use(express.json());
 
-    // app.use(express.json)
-    
     app.get('/', (req: Request, res: Response) => {
         res.status(200).json({ response: true })
     })
