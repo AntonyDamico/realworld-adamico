@@ -1,10 +1,11 @@
-import { Client } from './../entities/Client';
+import { Client } from './ClientEntity';
 import { getRepository, Repository, UpdateResult, DeleteResult } from 'typeorm';
 
-export class ClientRepo {
+export class ClientRepository {
     private repo: Repository<Client>;
 
     constructor() {
+        // console.log('hello');
         this.repo = getRepository(Client);
     }
 
@@ -13,7 +14,7 @@ export class ClientRepo {
         return this.repo.save(client);
     }
 
-    getClientsList(): Promise<Client[]> {
+    async getClientsList(): Promise<Client[]> {
         return this.repo.find();
     }
 
