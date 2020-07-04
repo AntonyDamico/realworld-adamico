@@ -21,7 +21,7 @@ app.get('/', (req: Request, res: Response) => {
   res.status(200).json({ response: true });
 });
 
-app.use(routes);
+app.use('/api', routes);
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err: ErrorDTO, request: Request, response: Response, _: NextFunction) => {
