@@ -1,9 +1,10 @@
 import 'reflect-metadata';
-import { ClientRepository } from './modules/client/ClientRepository';
+import ClientRepository from './modules/client/ClientRepository';
 import express, { Request, Application, Response } from 'express';
 import dotenv from 'dotenv';
 // import { typeOrmConfg } from './config/typeorm';
 import './config/typeorm';
+import './shared/container';
 import routes from './shared/routes';
 
 dotenv.config();

@@ -1,7 +1,7 @@
 import { Client } from './ClientEntity';
 import { getRepository, Repository, UpdateResult, DeleteResult } from 'typeorm';
 
-export class ClientRepository {
+export default class ClientRepository {
     private repo: Repository<Client>;
 
     constructor() {

@@ -1,15 +1,11 @@
-import { ClientRepository } from './ClientRepository';
+import ClientRepository from './ClientRepository';
 import { Request, Response } from 'express';
+import { container } from 'tsyringe';
 
 export default class ClientController {
-    private clientRepository: ClientRepository;
-
-    constructor() {
-        this.clientRepository = new ClientRepository();
-    }
-
     public async get(req: Request, res: Response): Promise<Response> {
-        const result = await this.clientRepository.getClientsList();
+        const clientRepository: ClientRepository = container.resolve('ClientRepository');
+        const result = await clientRepository.getClientsList();
         return res.status(201).send(result);
     }
 }

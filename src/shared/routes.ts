@@ -3,6 +3,6 @@ import clientRoutes from '../modules/client/client.routes';
 
 const routes = Router();
 
-routes.use('/customer', clientRoutes);
+routes.use('/clients', clientRoutes);
 
 export default routes;
