@@ -1,3 +1,4 @@
+import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
 import ClientRepository from './ClientRepository';
 import { Client, ClientDTO } from './ClientEntity';
@@ -15,6 +16,12 @@ class ClientService {
   }
 
   public async create(client: ClientDTO): Promise<Client> {
+    const existingClient = await this.clientRepository.findByFields(client);
+
+    if (existingClient) {
+      throw new AppError({ message: 'The client already exists' });
+    }
+
     const result = await this.clientRepository.createClient(client);
     return result;
   }

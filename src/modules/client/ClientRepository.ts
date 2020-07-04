@@ -22,6 +22,12 @@ export default class ClientRepository {
     });
   }
 
+  public findByFields({ name, lastname }: ClientDTO): Promise<Client | undefined> {
+    return this.repo.findOne({
+      where: { name, lastname },
+    });
+  }
+
   updateClient(clientId: string, newData: Client): Promise<UpdateResult> {
     return this.repo.update({ id: clientId }, newData);
   }
