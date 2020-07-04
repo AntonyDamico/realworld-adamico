@@ -1,7 +1,12 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+export interface ClientDTO {
+  id?: string;
+  name: string;
+  lastname: string;
+}
 @Entity()
-export class Client {
+export class Client implements ClientDTO {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 

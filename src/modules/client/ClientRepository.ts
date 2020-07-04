@@ -1,4 +1,4 @@
-import { Client } from './ClientEntity';
+import { Client, ClientDTO } from './ClientEntity';
 import { getRepository, Repository, UpdateResult, DeleteResult } from 'typeorm';
 
 export default class ClientRepository {
@@ -8,7 +8,7 @@ export default class ClientRepository {
     this.repo = getRepository(Client);
   }
 
-  createClient(client: Client): Promise<Client> {
+  createClient(client: ClientDTO): Promise<Client> {
     return this.repo.save(client);
   }
 

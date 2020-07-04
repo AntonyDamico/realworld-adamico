@@ -8,4 +8,11 @@ export default class ClientController {
     const result = await clientService.get();
     return res.status(201).send(result);
   }
+
+  public async create(req: Request, res: Response): Promise<Response> {
+    const { name, lastname } = req.body;
+    const clientService: ClientService = container.resolve(ClientService);
+    const result = await clientService.create({ name, lastname });
+    return res.status(201).send({ result });
+  }
 }
