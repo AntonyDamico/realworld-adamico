@@ -13,7 +13,7 @@ createConnection({
   password: process.env.DATABASE_PASSWORD,
   database: process.env.DATABASE_DB,
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [join(__dirname, `../modules/**/*Entity.{ts,js}`)],
   // entities: [join(__dirname, `../**/*.js`)],
 });

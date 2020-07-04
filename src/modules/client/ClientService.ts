@@ -1,11 +1,6 @@
 import { injectable, inject } from 'tsyringe';
 import ClientRepository from './ClientRepository';
-import { Client } from './ClientEntity';
-
-interface ICreateClientRequest {
-  name: string;
-  lastname: string;
-}
+import { Client, ClientDTO } from './ClientEntity';
 
 @injectable()
 class ClientService {
@@ -19,7 +14,7 @@ class ClientService {
     return result;
   }
 
-  public async create(client: ICreateClientRequest): Promise<Client> {
+  public async create(client: ClientDTO): Promise<Client> {
     const result = await this.clientRepository.createClient(client);
     return result;
   }
