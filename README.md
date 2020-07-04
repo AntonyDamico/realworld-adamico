@@ -3,6 +3,7 @@
 
 ```
 sudo docker-comse up
+npm run dev
 ```
 
 
