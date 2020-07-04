@@ -5,12 +5,10 @@ export default class ClientRepository {
     private repo: Repository<Client>;
 
     constructor() {
-        // console.log('hello');
         this.repo = getRepository(Client);
     }
 
     createClient(client: Client): Promise<Client> {
-        console.log(client);
         return this.repo.save(client);
     }
 
