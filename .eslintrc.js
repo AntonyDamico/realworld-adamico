@@ -6,6 +6,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   rules: {
     '@typescript-eslint/explicit-function-return-type': ['error'],
+    // "@typescript-eslint/explicit-member-accessibility": ["error"]
   },
   plugins: ['@typescript-eslint'],
   extends: [

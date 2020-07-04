@@ -1,6 +1,9 @@
-interface ErrorDTO {
+import { ValidationError } from 'joi';
+
+export interface ErrorDTO {
   message: string;
   statusCode?: number;
+  joi?: ValidationError;
 }
 
 export class AppError {

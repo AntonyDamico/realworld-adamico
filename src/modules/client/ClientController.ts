@@ -10,6 +10,7 @@ export default class ClientController {
   }
 
   public async create(req: Request, res: Response): Promise<Response> {
+    console.log(req.body);
     const { name, lastname } = req.body;
     const clientService: ClientService = container.resolve(ClientService);
     const result = await clientService.create({ name, lastname });
