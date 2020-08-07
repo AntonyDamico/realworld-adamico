@@ -9,6 +9,13 @@ export default class ClientController {
     return res.status(201).send(result);
   }
 
+  public async get(req: Request, res: Response): Promise<Response> {
+    const { id } = req.params;
+    const clientService: ClientService = container.resolve(ClientService);
+    const result = await clientService.get(id);
+    return res.status(201).send({ result });
+  }
+
   public async create(req: Request, res: Response): Promise<Response> {
     const { name, lastname } = req.body;
     const clientService: ClientService = container.resolve(ClientService);

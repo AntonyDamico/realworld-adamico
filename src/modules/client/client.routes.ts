@@ -7,6 +7,8 @@ const clientController = new ClientController();
 
 clientRouter.get('/', clientController.all);
 
+clientRouter.get('/:id', celebrate({ [Segments.BODY]: { id: Joi.string().required() } }), clientController.get);
+
 clientRouter.post(
   '/',
   celebrate({
