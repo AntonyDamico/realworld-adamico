@@ -10,7 +10,7 @@ class ClientService {
     private clientRepository: ClientRepository,
   ) {}
 
-  public async get(): Promise<Client[]> {
+  public async all(): Promise<Client[]> {
     const result = await this.clientRepository.getClientsList();
     return result;
   }
