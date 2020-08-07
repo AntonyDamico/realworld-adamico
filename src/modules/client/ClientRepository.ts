@@ -17,7 +17,7 @@ export default class ClientRepository {
     return this.repo.find();
   }
 
-  getClient(clientId: string): Promise<Client> {
+  getClient(clientId: string): Promise<Client | undefined> {
     return this.repo.findOne({
       where: { id: clientId },
     });

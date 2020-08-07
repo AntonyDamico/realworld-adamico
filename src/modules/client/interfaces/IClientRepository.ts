@@ -5,7 +5,7 @@ import IClientDTO from './IClientDTO';
 export default interface ICLientRepository {
   createClient(client: IClientDTO): Promise<Client>;
   getClientsList(): Promise<Client[]>;
-  getClient(clientId: string): Promise<Client>;
+  getClient(clientId: string): Promise<Client | undefined>;
   findByFields({ name, lastname }: IClientDTO): Promise<Client | undefined>;
   updateClient(clientId: string, newData: Client): Promise<UpdateResult>;
   deleteClient(clientId: string): Promise<DeleteResult>;
