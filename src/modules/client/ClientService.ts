@@ -1,15 +1,15 @@
 import validator from 'validator';
 import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
-import ClientRepository from './ClientRepository';
 import Client from './ClientEntity';
 import IClientDTO from './interfaces/IClientDTO';
+import ICLientRepository from './interfaces/IClientRepository';
 
 @injectable()
 class ClientService {
   constructor(
     @inject('ClientRepository')
-    private clientRepository: ClientRepository,
+    private clientRepository: ICLientRepository,
   ) {}
 
   public async all(): Promise<Client[]> {

@@ -1,8 +1,9 @@
 import Client from './ClientEntity';
 import IClientDTO from './interfaces/IClientDTO';
 import { getRepository, Repository, UpdateResult, DeleteResult } from 'typeorm';
+import ICLientRepository from './interfaces/IClientRepository';
 
-export default class ClientRepository {
+export default class ClientRepository implements ICLientRepository {
   private repo: Repository<Client>;
 
   constructor() {
