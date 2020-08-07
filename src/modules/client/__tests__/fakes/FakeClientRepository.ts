@@ -1,11 +1,10 @@
-import { UpdateResult, DeleteResult, ObjectLiteral } from 'typeorm';
+import { UpdateResult, DeleteResult } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import Client from '../../ClientEntity';
 import IClientDTO from '../../interfaces/IClientDTO';
 import IClientRepository from '../../interfaces/IClientRepository';
 
-// class FakeClientRepository implements IClientRepository {
-class FakeClientRepository {
+class FakeClientRepository implements IClientRepository {
   public clients: Client[] = [];
 
   public async createClient({ name, lastname }: IClientDTO): Promise<Client> {

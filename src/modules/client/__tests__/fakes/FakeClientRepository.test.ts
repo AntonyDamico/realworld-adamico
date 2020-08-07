@@ -1,7 +1,6 @@
 import IClientDTO from '../../interfaces/IClientDTO';
 import FakeClientRepository from './FakeClientRepository';
 import Client from '../../ClientEntity';
-import { example } from 'joi';
 
 let fakeClientRepository: FakeClientRepository;
 let exampleClient: IClientDTO;
