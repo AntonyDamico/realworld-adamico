@@ -1,3 +1,8 @@
+import {
+  invalidUuidMessage,
+  noClientErrorMessage,
+  clientExistErrorMessage,
+} from './../../shared/constants/errorMessages';
 import validator from 'validator';
 import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
@@ -19,13 +24,13 @@ class ClientService {
 
   public async get(clientId: string): Promise<Client> {
     if (!validator.isUUID(clientId)) {
-      throw new AppError({ message: 'The id is not a valid UUID' });
+      throw new AppError({ message: invalidUuidMessage });
     }
 
     const client = await this.clientRepository.getClient(clientId);
 
     if (!client) {
-      throw new AppError({ message: 'The client does not exist' });
+      throw new AppError({ message: noClientErrorMessage });
     }
 
     return client;
@@ -35,7 +40,7 @@ class ClientService {
     const existingClient = await this.clientRepository.findByFields(client);
 
     if (existingClient) {
-      throw new AppError({ message: 'The client already exists' });
+      throw new AppError({ message: clientExistErrorMessage });
     }
 
     const result = await this.clientRepository.createClient(client);
