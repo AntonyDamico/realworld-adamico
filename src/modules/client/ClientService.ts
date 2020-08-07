@@ -1,8 +1,8 @@
+import validator from 'validator';
 import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
 import ClientRepository from './ClientRepository';
 import { Client, ClientDTO } from './ClientEntity';
-import Utils from '../../shared/Utils';
 
 @injectable()
 class ClientService {
@@ -17,7 +17,7 @@ class ClientService {
   }
 
   public async get(clientId: string): Promise<Client> {
-    if (!Utils.isUUID(clientId)) {
+    if (!validator.isUUID(clientId)) {
       throw new AppError({ message: 'The id is not a valid UUID' });
     }
 
