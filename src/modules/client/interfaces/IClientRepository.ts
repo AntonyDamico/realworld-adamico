@@ -7,6 +7,6 @@ export default interface ICLientRepository {
   getClientsList(): Promise<Client[]>;
   getClient(clientId: string): Promise<Client | undefined>;
   findByFields({ name, lastname }: IClientDTO): Promise<Client | undefined>;
-  updateClient(clientId: string, newData: Client): Promise<UpdateResult>;
-  deleteClient(clientId: string): Promise<DeleteResult>;
+  updateClient(newData: Client): Promise<UpdateResult | undefined>;
+  deleteClient(clientId: string): Promise<DeleteResult | undefined>;
 }

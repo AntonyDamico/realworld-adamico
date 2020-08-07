@@ -1,3 +1,4 @@
+import { UpdateResult, DeleteResult, ObjectLiteral } from 'typeorm';
 import { v4 as uuidv4 } from 'uuid';
 import Client from '../../ClientEntity';
 import IClientDTO from '../../interfaces/IClientDTO';
@@ -21,6 +22,24 @@ class FakeClientRepository {
   public async getClient(clientId: string): Promise<Client | undefined> {
     const clientData = this.clients.find((client) => client.id === clientId);
     return clientData;
+  }
+
+  public async findByFields({ name, lastname }: IClientDTO): Promise<Client | undefined> {
+    const clientData = this.clients.find((client) => client.name === name && client.lastname === lastname);
+    return clientData;
+  }
+
+  public async updateClient({ id, name, lastname }: Client): Promise<UpdateResult | undefined> {
+    const clientData = await this.getClient(id);
+    if (!clientData) return undefined;
+    clientData.name = name;
+    clientData.lastname = lastname;
+    return undefined;
+  }
+
+  public async deleteClient(clientId: string): Promise<DeleteResult | undefined> {
+    this.clients = this.clients.filter((client) => client.id !== clientId);
+    return undefined;
   }
 }
 

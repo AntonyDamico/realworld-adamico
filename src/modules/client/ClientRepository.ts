@@ -29,8 +29,8 @@ export default class ClientRepository {
     });
   }
 
-  updateClient(clientId: string, newData: Client): Promise<UpdateResult> {
-    return this.repo.update({ id: clientId }, newData);
+  updateClient(newData: Client): Promise<UpdateResult> {
+    return this.repo.update({ id: newData.id }, newData);
   }
 
   deleteClient(clientId: string): Promise<DeleteResult> {
