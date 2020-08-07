@@ -1,4 +1,5 @@
-import { Client, ClientDTO } from './ClientEntity';
+import Client from './ClientEntity';
+import IClientDTO from './interfaces/IClientDTO';
 import { getRepository, Repository, UpdateResult, DeleteResult } from 'typeorm';
 
 export default class ClientRepository {
@@ -8,7 +9,7 @@ export default class ClientRepository {
     this.repo = getRepository(Client);
   }
 
-  createClient(client: ClientDTO): Promise<Client> {
+  createClient(client: IClientDTO): Promise<Client> {
     return this.repo.save(client);
   }
 
@@ -22,7 +23,7 @@ export default class ClientRepository {
     });
   }
 
-  public findByFields({ name, lastname }: ClientDTO): Promise<Client | undefined> {
+  public findByFields({ name, lastname }: IClientDTO): Promise<Client | undefined> {
     return this.repo.findOne({
       where: { name, lastname },
     });

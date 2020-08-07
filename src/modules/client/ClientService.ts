@@ -2,7 +2,8 @@ import validator from 'validator';
 import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
 import ClientRepository from './ClientRepository';
-import { Client, ClientDTO } from './ClientEntity';
+import Client from './ClientEntity';
+import IClientDTO from './interfaces/IClientDTO';
 
 @injectable()
 class ClientService {
@@ -30,7 +31,7 @@ class ClientService {
     return client;
   }
 
-  public async create(client: ClientDTO): Promise<Client> {
+  public async create(client: IClientDTO): Promise<Client> {
     const existingClient = await this.clientRepository.findByFields(client);
 
     if (existingClient) {
