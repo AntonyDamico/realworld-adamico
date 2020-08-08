@@ -1,7 +1,7 @@
 import {
   invalidUuidMessage,
   noClientErrorMessage,
-  clientExistErrorMessage,
+  clientExistsErrorMessage,
 } from './../../shared/constants/errorMessages';
 import validator from 'validator';
 import { AppError } from './../../shared/errors';
@@ -40,7 +40,7 @@ class ClientService {
     const existingClient = await this.clientRepository.findByFields(client);
 
     if (existingClient) {
-      throw new AppError({ message: clientExistErrorMessage });
+      throw new AppError({ message: clientExistsErrorMessage });
     }
 
     const result = await this.clientRepository.createClient(client);
