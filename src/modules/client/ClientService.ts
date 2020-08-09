@@ -3,7 +3,7 @@ import {
   noClientErrorMessage,
   clientExistsErrorMessage,
 } from './../../shared/constants/errorMessages';
-import validator from 'validator';
+import { validate as uuidValidate } from 'uuid';
 import { AppError } from './../../shared/errors';
 import { injectable, inject } from 'tsyringe';
 import Client from './ClientEntity';
@@ -23,7 +23,7 @@ class ClientService {
   }
 
   public async get(clientId: string): Promise<Client> {
-    if (!validator.isUUID(clientId)) {
+    if (!uuidValidate(clientId)) {
       throw new AppError({ message: invalidUuidMessage });
     }
 
